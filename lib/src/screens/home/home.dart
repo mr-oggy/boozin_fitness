@@ -10,7 +10,7 @@ import 'package:health/health.dart';
 
 class Home extends GetView<HelthRepository> {
   const Home({Key? key}) : super(key: key);
-
+/// route: '/home'
   static const String route = '/home';
 
   @override
@@ -18,10 +18,12 @@ class Home extends GetView<HelthRepository> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 50, 16, 10),
+        /// featch data from repository
         child: Obx(() {
           final _healthPoint = controller.healthPoint;
           HealthDataPoint? steps;
           HealthDataPoint? calories;
+          /// get data from repository and assing to steps and calories
           if (_healthPoint.isNotEmpty) {
             steps = _healthPoint.first;
             calories = _healthPoint.last;
@@ -39,16 +41,20 @@ class Home extends GetView<HelthRepository> {
                 ),
               ),
               const SizedBox(height: 40),
+              /// if steps is null show shimmer
               LoadingShimmer(
                 loading: steps == null,
+                //if steps is not null show steps
                 child: HomeCard(
                   iconPath: ImagePathLight.iconFootSteps,
                   title: '${AppText.steps}: ${steps?.value}',
                   goal: '15,000',
                 ),
               ),
+              /// if calories is null show shimmer
               LoadingShimmer(
                 loading: calories == null,
+                //if calories is not null show calories
                 child: HomeCard(
                   iconPath: ImagePathLight.iconKcal,
                   title: '${AppText.caloriesBurned}: ${calories?.value}',
