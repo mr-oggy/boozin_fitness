@@ -1,3 +1,4 @@
+import 'package:boozin_fitness/src/extensions/theme_value.dart';
 import 'package:boozin_fitness/src/screens/home/home.dart';
 import 'package:boozin_fitness/src/utils/animate_with_blink.dart';
 import 'package:boozin_fitness/src/utils/colors.dart';
@@ -72,9 +73,7 @@ class _SplashState extends State<Splash> {
                 if (align)
                   AnimateWithBlink(
                     visible: _visible,
-                    child: const ShowImage(
-                      imagePath: ImagePathLight.splashBoozin,
-                    ),
+                    child: ShowImage(imagePath: ImagePath(context).splashBoozin),
                   ),
               ],
             ),
@@ -88,7 +87,6 @@ class _SplashState extends State<Splash> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: AppFont.nunito,
-                  color: AppColor.black,
                 ),
               ),
             ),

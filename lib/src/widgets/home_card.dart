@@ -4,10 +4,19 @@ import 'package:boozin_fitness/src/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {
-  const HomeCard({required this.title, required this.goal, required this.iconPath, Key? key}) : super(key: key);
+  const HomeCard(
+      {required this.title,
+      required this.goal,
+      required this.iconPath,
+      required this.heading,
+      required this.value,
+      Key? key})
+      : super(key: key);
   final String iconPath;
   final String title;
   final String goal;
+  final String heading;
+  final double value;
   final TextStyle _titleStyle = const TextStyle(
     fontSize: 10,
     fontWeight: FontWeight.w500,
@@ -33,16 +42,36 @@ class HomeCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      title,
+                    Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '$heading: ',
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: AppFont.montserrat,
+                            ),
+                          ),
+                          TextSpan(
+                            text: title,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: AppFont.nunito,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 16),
-                    const Flexible(
+                    Flexible(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: const BorderRadius.all(Radius.circular(10)),
                         child: LinearProgressIndicator(
-                          value: 0.8,
-                          valueColor: AlwaysStoppedAnimation(AppColor.black),
+                          /// change the value of the progress bar
+                          value: value / 100,
+                          valueColor: const AlwaysStoppedAnimation(AppColor.black),
                           backgroundColor: AppColor.white,
                           minHeight: 16,
                         ),
