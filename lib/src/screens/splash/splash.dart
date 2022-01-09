@@ -13,23 +13,35 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  double opacity = 0;
-  double padding = 0;
   bool _visible = false;
   bool align = false;
 
   _setAnimation() => setState(() {
-        opacity = opacity == 0 ? 1 : 0;
         align = !align;
       });
 
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 800), () {
+    initSetup().then((_) async {
+      // Once setup is complete then load the animation
       _setAnimation();
-      _visible = true;
+      await Future.delayed(const Duration(milliseconds: 100));
+      setupComplete();
     });
+
     super.initState();
+  }
+
+  /// Call all the futures that need to be resolved before the app can start
+  Future<void> initSetup() {
+    /// This is sample delay to represent the loading of the app
+    return Future.delayed(const Duration(seconds: 2));
+  }
+
+  void setupComplete() async {
+    // Once setup is complete then load the animation and do the necessary navigation
+    _visible = true;
+    setState(() {});
   }
 
   @override
@@ -44,8 +56,8 @@ class _SplashState extends State<Splash> {
               alignment: Alignment.center,
               children: <Widget>[
                 AnimatedAlign(
-                  duration: const Duration(milliseconds: 800),
-                  alignment: align ? const Alignment(0.33, 3) : Alignment.center,
+                  duration: const Duration(milliseconds: 500),
+                  alignment: align ? const Alignment(0.33, 0) : Alignment.center,
                   child: const ShowImage(
                     imagePath: ImagePathCommon.splashI,
                   ),
