@@ -13,18 +13,11 @@ class App extends StatelessWidget {
       title: 'App Title',
       theme: ThemeData(
         brightness: Brightness.light,
-        /* light theme settings */
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        /* dark theme settings */
       ),
-      
-      themeMode: ThemeMode.dark, 
-      /* ThemeMode.system to follow system theme, 
-         ThemeMode.light for light theme, 
-         ThemeMode.dark for dark theme
-      */
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       initialRoute: Splash.route,
       getPages: [

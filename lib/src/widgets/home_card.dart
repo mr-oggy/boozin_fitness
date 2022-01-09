@@ -1,3 +1,4 @@
+import 'package:boozin_fitness/src/extensions/theme_value.dart';
 import 'package:boozin_fitness/src/utils/colors.dart';
 import 'package:boozin_fitness/src/utils/font_style.dart';
 import 'package:boozin_fitness/src/utils/strings.dart';
@@ -71,7 +72,9 @@ class HomeCard extends StatelessWidget {
                         child: LinearProgressIndicator(
                           /// change the value of the progress bar
                           value: value / 100,
-                          valueColor: const AlwaysStoppedAnimation(AppColor.black),
+                          valueColor: AlwaysStoppedAnimation(
+                            context.themeValue(light: AppColor.black, dark: AppColor.white),
+                          ),
                           backgroundColor: AppColor.white,
                           minHeight: 16,
                         ),

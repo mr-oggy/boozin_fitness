@@ -1,7 +1,5 @@
-import 'package:boozin_fitness/src/extensions/theme_value.dart';
 import 'package:boozin_fitness/src/screens/home/home.dart';
 import 'package:boozin_fitness/src/utils/animate_with_blink.dart';
-import 'package:boozin_fitness/src/utils/colors.dart';
 import 'package:boozin_fitness/src/utils/font_style.dart';
 import 'package:boozin_fitness/src/utils/image_path.dart';
 import 'package:boozin_fitness/src/utils/strings.dart';
@@ -58,24 +56,27 @@ class _SplashState extends State<Splash> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Stack(
-              alignment: Alignment.center,
-              children: <Widget>[
-                // animate the pin logo on the screen
-                AnimatedAlign(
-                  duration: const Duration(milliseconds: 500),
-                  alignment: align ? const Alignment(0.33, 0) : Alignment.center,
-                  child: const ShowImage(
-                    imagePath: ImagePathCommon.splashI,
+            ConstrainedBox(
+              constraints: BoxConstraints.tight(const Size(210, 85)),
+              child: Stack(
+                alignment: Alignment.center,
+                children: <Widget>[
+                  // animate the pin logo on the screen
+                  AnimatedAlign(
+                    duration: const Duration(milliseconds: 500),
+                    alignment: align ? const Alignment(0.615, 0) : Alignment.center,
+                    child: const ShowImage(
+                      imagePath: ImagePathCommon.splashI,
+                    ),
                   ),
-                ),
-                // animate the boozin logo on the screen
-                if (align)
-                  AnimateWithBlink(
-                    visible: _visible,
-                    child: ShowImage(imagePath: ImagePath(context).splashBoozin),
-                  ),
-              ],
+                  // animate the boozin logo on the screen
+                  if (align)
+                    AnimateWithBlink(
+                      visible: _visible,
+                      child: ShowImage(imagePath: ImagePath(context).splashBoozin),
+                    ),
+                ],
+              ),
             ),
             const SizedBox(height: 14),
             // animate the fitness text on the screen

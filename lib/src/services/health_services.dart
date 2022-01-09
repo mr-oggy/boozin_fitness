@@ -32,11 +32,13 @@ class HelthService {
     if (requested) {
       /// fetch the data from the health store
       healthData = await health.getHealthDataFromTypes(yesterday, now, types);
+
     } else {
       /// if the request is not successful
-      //todo: hendel error here
-      print("Authorization not granted");
+      throw AuthenticationRequired();
     }
     return healthData;
   }
 }
+
+class AuthenticationRequired extends Error {}

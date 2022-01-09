@@ -1,3 +1,4 @@
+import 'package:boozin_fitness/src/extensions/theme_value.dart';
 import 'package:boozin_fitness/src/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
@@ -29,9 +30,9 @@ class LoadingShimmer extends StatelessWidget {
               borderRadius: borderRadius ?? BorderRadius.circular(10),
               child: Shimmer(
                 duration: const Duration(seconds: 2),
-                color: AppColor.black.withOpacity(0.005),
+                color: context.themeValue(light: AppColor.black, dark: AppColor.white).withOpacity(0.005),
                 child: Container(
-                  color: AppColor.black.withOpacity(0.05),
+                  color: context.themeValue(light: AppColor.black, dark: AppColor.white).withOpacity(0.05),
                   alignment: Alignment.center,
                   child: ConstrainedBox(
                     constraints: BoxConstraints(

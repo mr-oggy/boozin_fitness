@@ -62,7 +62,6 @@ flutter:
     - assets/splash_logo/dark/Booz_n.png
     - assets/splash_logo/light/Booz_n.png
     - assets/splash_logo/i_common.png
-    - assets/splash_logo/oo_common.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
