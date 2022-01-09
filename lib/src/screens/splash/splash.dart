@@ -1,5 +1,6 @@
 import 'package:boozin_fitness/src/screens/home/home.dart';
 import 'package:boozin_fitness/src/utils/animate_with_blink.dart';
+import 'package:boozin_fitness/src/utils/colors.dart';
 import 'package:boozin_fitness/src/utils/font_style.dart';
 import 'package:boozin_fitness/src/utils/image_path.dart';
 import 'package:boozin_fitness/src/utils/strings.dart';
@@ -87,7 +88,7 @@ class _SplashState extends State<Splash> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: AppFont.nunito,
-                  color: Colors.black,
+                  color: AppColor.black,
                 ),
               ),
             ),
