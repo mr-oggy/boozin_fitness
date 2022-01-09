@@ -1,4 +1,6 @@
+import 'package:boozin_fitness/src/utils/colors.dart';
 import 'package:boozin_fitness/src/utils/font_style.dart';
+import 'package:boozin_fitness/src/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {
@@ -40,8 +42,8 @@ class HomeCard extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                         child: LinearProgressIndicator(
                           value: 0.8,
-                          valueColor: AlwaysStoppedAnimation(Color(0xFF000000)),
-                          backgroundColor: Color(0xFFC4C4C4),
+                          valueColor: AlwaysStoppedAnimation(AppColor.black),
+                          backgroundColor: AppColor.white,
                           minHeight: 16,
                         ),
                       ),
@@ -56,7 +58,7 @@ class HomeCard extends StatelessWidget {
                           style: _titleStyle,
                         ),
                         Text(
-                          'Goal: $goal',
+                          '${AppText.goal}: $goal',
                           style: _titleStyle,
                         ),
                       ],
