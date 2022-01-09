@@ -9,10 +9,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: '/',
+      initialRoute: Splash.route,
       getPages: [
-        GetPage(name: '/', page: () => const Splash()),
-        GetPage(name: '/home', page: () => Home()),
+        GetPage(name: Splash.route, page: () => const Splash()),
+        GetPage(name: Home.route, page: () => const Home()),
       ],
     );
   }

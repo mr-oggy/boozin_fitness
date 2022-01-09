@@ -1,5 +1,3 @@
-import 'package:boozin_fitness/src/controller/home_controller.dart';
-import 'package:boozin_fitness/src/models/get_data_model.dart';
 import 'package:boozin_fitness/src/utils/font_style.dart';
 import 'package:boozin_fitness/src/utils/image_path.dart';
 import 'package:boozin_fitness/src/utils/strings.dart';
@@ -8,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:health/health.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
+
+  static const String route = '/home';
 
   @override
   State<Home> createState() => _HomeState();
